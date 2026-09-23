@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub basisvaardigheden - Sint-Franciscus Evergem (5 ICW)</title>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandPrimary: '#083D91',  /* Donkerblauw */
+                        brandSecondary: '#00A3A3',/* Teal */
+                        brandAccent: '#F4B400',   /* Geel */
+                        brandBg: '#F8FAFC',       /* Lichtgrijs */
+                        brandText: '#1F2937'      /* Donkergrijs */
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #F8FAFC;
+            color: #1F2937;
+        }
+        /* Custom smooth transition for accordions */
+        .accordion-content {
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <header class="bg-[#083D91] text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                
+                <!-- Logo & School Info -->
+                <div class="flex items-center space-x-3">
+                    <div class="p-2 bg-white/10 rounded-lg flex items-center justify-center">
+                        <span class="font-bold text-xl sm:text-2xl text-white font-mono tracking-tighter">SF</span>
+                    </div>
+                    <div>
+                        <a href="index.html" class="font-bold text-sm sm:text-base tracking-wide block hover:text-cyan-200 transition">
+                            SINT-FRANCISCUS EVERGEM
+                        </a>
+                        <span class="text-xs text-cyan-200 font-light block -mt-1">5 ICW – HARDWARE</span>
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex space-x-1 lg:space-x-2">
+                    <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition">Home</a>
+                    <a href="mitnick.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition">Mitnick Games</a>
+                    <a href="github.html" class="px-3 py-2 rounded-md text-sm font-medium bg-[#00A3A3] text-white shadow-sm transition" aria-current="page">GitHub</a>
+                    <a href="nokia.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition">Nokia</a>
+                </nav>
+
+                <!-- Search & Mobile Hamburger Button -->
+                <div class="flex items-center space-x-3">
+                    <button class="p-2 hover:bg-white/10 rounded-full transition" aria-label="Zoeken">
+                        <i class="fa-solid fa-magnifying-glass text-lg"></i>
+                    </button>
+                    <button id="mobile-menu-btn" class="md:hidden p-2 rounded-md hover:bg-white/10 focus:outline-none" aria-label="Menu openen">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#062f70] border-t border-blue-900 px-4 pt-2 pb-4 space-y-1">
+            <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-white/10">Home</a>
+            <a href="mitnick.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-white/10">Mitnick Games</a>
+            <a href="github.html" class="block px-3 py-2 rounded-md text-base font-medium bg-[#00A3A3] text-white">GitHub</a>
+            <a href="nokia.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-white/10">Nokia</a>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <section class="relative bg-[#0d1117] text-white overflow-hidden py-16 sm:py-24">
+            <div class="absolute inset-0 z-0 opacity-25 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1618401471353-b98aedd04e11?q=80&w=1200&auto=format&fit=crop');"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-[#083D91] via-[#083D91]/85 to-transparent opacity-90 z-0"></div>
+            
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-2xl">
+                    <span class="inline-block px-3 py-1 bg-[#00A3A3]/20 border border-[#00A3A3] text-cyan-200 text-xs font-semibold rounded-full uppercase tracking-wider mb-3">
+                        Interactive Module
+                    </span>
+                    <h1 class="text-3xl sm:text-5xl font-bold tracking-tight mb-3">
+                        GitHub basisvaardigheden
+                    </h1>
+                    <p class="text-lg sm:text-xl text-cyan-200 font-light tracking-wide">
+                        Code together. Build further.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 space-y-10">
+            
+            <!-- Summary & Description Card -->
+            <div class="bg-white rounded-xl p-6 sm:p-8 shadow-sm border border-slate-100 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                <div class="md:col-span-2 space-y-4">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-[#083D91] relative pb-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-16 after:h-1 after:bg-[#00A3A3] after:rounded">
+                        Wat leer je?
+                    </h2>
+                    <p class="text-slate-700 leading-relaxed text-base sm:text-lg">
+                        In <strong class="text-[#083D91]">8 interactieve lessen</strong> ontdek je de meest waardevolle tool voor developers: <strong class="text-[#083D91]">GitHub</strong>. Je leert samenwerken, versies beheren met Git, pull requests uitvoeren, conflicten oplossen en professioneel werken in teams.
+                    </p>
+                    <p class="text-sm text-slate-500 italic">
+                        <i class="fa-solid fa-circle-info text-[#00A3A3] mr-1"></i>
+                        Vink de lessen af naarmate je vordert. Je voortgang wordt automatisch opgeslagen.
+                    </p>
+                </div>
+                <div class="flex justify-center">
+                    <div class="relative overflow-hidden rounded-xl shadow-md group max-w-xs w-full bg-slate-900 p-8 flex flex-col items-center justify-center text-center">
+                        <i class="fa-brands fa-github text-7xl text-white group-hover:scale-110 transition duration-300 mb-2"></i>
+                        <span class="text-cyan-400 font-mono text-xs">Version Control System</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+                    <div>
+                        <h3 class="text-lg font-bold text-[#083D91]">Jouw Leerfortgang</h3>
+                        <p class="text-xs text-slate-500" id="progress-subtitle">0 van de 8 lessen voltooid</p>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <span id="progress-percent" class="text-2xl font-bold text-[#00A3A3]">0%</span>
+                        <button id="reset-progress-btn" class="text-xs text-slate-400 hover:text-red-500 transition underline">
+                            Herstel voortgang
+                        </button>
+                    </div>
+                </div>
+                <!-- Progress Bar Track -->
+                <div class="w-full bg-slate-100 h-4 rounded-full overflow-hidden border border-slate-200">
+                    <div id="progress-bar" class="bg-gradient-to-r from-[#00A3A3] to-[#083D91] h-full w-0 transition-all duration-500 ease-out"></div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 sm:p-8 shadow-sm border border-slate-100">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-[#083D91]">
+                        Onderwerpen & Lessen
+                    </h2>
+                    <span class="text-xs sm:text-sm text-slate-500 font-normal">
+                        Klik op een les voor meer informatie
+                    </span>
+                </div>
+
+                <!-- Lessons Container (8 Cards) -->
+                <div class="space-y-4" id="lessons-container">
+
+                    <!-- Lesson 1 -->
+                    <div class="lesson-card border border-slate-200 rounded-xl overflow-hidden hover:border-[#00A3A3] transition duration-200 bg-slate-50/50" data-lesson-id="1">
+                        <div class="p-4 sm:p-5 flex items-center justify-between cursor-pointer select-none" onclick="toggleAccordion(1)">
+                            <div class="flex items-center space-x-4">
+                                <button type="button" onclick="event.stopPropagation(); toggleLessonCheck(1)" class="checkbox-btn w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0 rounded-full border-2 border-slate-300 flex items-center justify-center transition-colors bg-white hover:border-[#00A3A3]">
+                                    <i class="fa-solid fa-check text-white text-xs sm:text-sm hidden"></i>
+                                </button>
+                                <span class="w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0 flex items-center justify-center rounded-full bg-[#00A3A3]/10 text-[#00A3A3] font-bold text-sm">
+                                    1
+                                </span>
+                                <div>
+                                    <h3 class="lesson-title font-semibold text-slate-800 text-base sm:text-lg">
+                                        Repositories en cloning
+                                    </h3>
+                                    <span class="text-xs text-slate-500">Basis van Git & Projecten importeren</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <span class="status-badge text-xs px-2.5 py-1 rounded-full bg-slate-200 text-slate-600 font-medium hidden sm:inline-block">Nog niet gedaan</span>
+                                <i class="fa-solid fa-chevron-down text-slate-400 transform transition-transform duration-200 accordion-arrow"></i>
+                            </div>
+                        </div>
+
+                        <!-- Expanded Accordion Content -->
+                        <div class="accordion-content hidden border-t border-slate-200 bg-white p-5 sm:p-6 text-slate-700 text-sm space-y-3">
+                            <p class="font-medium text-[#083D91]">Wat leer je in deze les?</p>
+                            <p>Je leert hoe je een nieuw project start in Git en een bestaand project van GitHub naar je eigen computer ophaalt.</p>
+                            <ul class="list-disc list-inside space-y-1 text-slate-600 pl-2">
+                                <li><strong>Git Repository:</strong> De centrale map waarin Git al je wijzigingen en bestandsgeschiedenis bijhoudt.</li>
+                                <li><code>git init</code>: Maakt van een gewone map een Git-repository op je computer.</li>
+                                <li><code>git clone &lt;url&gt;</code>: Downloadt een kopie van een remote GitHub-project inclusief alle geschiedenis naar jouw lokale pc.</li>
+                            </ul>
+                            <div class="p-3 bg-slate-900 text-slate-100 rounded-lg font-mono text-xs overflow-x-auto">
+                                # Een repository klonen naar je computer<br>
+                                git clone https://github.com/gebruiker/project-naam.git
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lesson 2 -->
+                    <div class="lesson-card border border-slate-200 rounded-xl overflow-hidden hover:border-[#00A3A3] transition duration-200 bg-slate-50/50" data-lesson-id="2">
+                        <div class="p-4 sm:p-5 flex items-center justify-between cursor-pointer select-none" onclick="toggleAccordion(2)">
+                            <div class="flex items-center space-x-4">
+                                <button type="button" onclick="event.stopPropagation(); toggleLessonCheck(2)" class="checkbox-btn w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0 rounded-full border-2 border-slate-300 flex items-center justify-center transition-colors bg-white hover:border-[#00A3A3]">
+                                    <i class="fa-solid fa-check text-white text-xs sm:text-sm hidden"></i>
+                                </button>
+                                <span class="w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0 flex items-center justify-center rounded-full bg-[#00A3A3]/10 text-[#00A3A3] font-bold text-sm">
+                                    2
+                                </span>
+                                <div>
+                                    <h3 class="lesson-title font-semibold text-slate-800 text-base sm:text-lg">
+                                        Branches en merging
+                                    </h3>
+                                    <span class="text-xs text-slate-500">Veilig experimenteren in aparte vertakkingen</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <span class="status-badge text-xs px-2.5 py-1 rounded-full bg-slate-200 text-slate-600 font-medium hidden sm:inline-block">Nog niet gedaan</span>
+                                <i class="fa-solid fa-chevron-down text-slate-400 transform transition-transform duration-200 accordion-arrow"></i>
+                            </div>
+                        </div>
+
+                        <div class="accordion-content hidden border-t border-slate-200 bg-white p-5 sm:p-6 text-slate-700 text-sm space-y-3">
+                            <p class="font-medium text-[#083D91]">Wat leer je in deze les?</p>
+                            <p>Met branches kun je aan een nieuwe functie (feature) werken zonder dat je de werkende code in de hoofdbranch (main) verstoort.</p>
+                            <ul class="list-disc list-inside space-y-1 text-slate-600 pl-2">
+                                <li><strong>Branching Strategy:</strong> Werken met een <code>main</code> branch voor stabiele code en feature-branches voor updates.</li>
+                                <li><code>git branch feature-naam</code> & <code>git checkout feature-naam</code>: Maak en wissel naar een nieuwe branch.</li>
+                                <li><code>git merge feature-naam</code>: Voeg de goedgekeurde code uit je branch samen met de main branch.</li>
+                            </ul>
+                            <div class="p-3 bg-slate-900 text-slate-100 rounded-lg font-mono text-xs overflow-x-auto">
+                                git checkout -b feature/nieuwe-pagina<br>
+                                git commit -m "Voeg nieuwe pagina toe"<br>
+                                git checkout main && git merge feature/nieuwe-pagina
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lesson 3 -->
+                    <div class="lesson-card border border-slate-200 rounded-xl overflow-hidden hover:border-[#00A3A3] transition duration-200 bg-slate-50/50" data-lesson-id="3">
+                        <div class="p-4 sm:p-5 flex items-center justify-between cursor-pointer select-none" onclick="toggleAccordion(3)">
+                            <div class="flex items-center space-x-4">
+                                <button type="button" onclick="event.stopPropagation(); toggleLessonCheck(3)" class="checkbox-btn w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0 rounded-full border-2 border-slate-300 flex items-center justify-center transition-colors bg-white hover:border-[#00A3A3]">
+                                    <i class="fa-solid fa-check text-white text-xs sm:text-sm hidden"></i>
+                                </button>
+                                <span class="w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0 flex items-center justify-center rounded-full bg-[#00A3A3]/10 text-[#00A3A3] font-bold text-sm">
+                                    3
+                                </span>
+                                <div>
+                                    <h3 class="lesson-title font-semibold text-slate-800 text-base sm:text-lg">
+                                        Pull requests en code review
+                                    </h3>
+                                    <span class="text-xs text-slate-500">Kwaliteitscontrole & Feedback vragen</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <span class="status-badge text-xs px-2.5 py-1 rounded-full bg-slate-200 text-slate-600 font-medium hidden sm:inline-block">Nog niet gedaan</span>
+                                <i class="fa-solid fa-chevron-down text-slate-400 transform transition-transform duration-200 accordion-arrow"></i>
+                            </div>
+                        </div>
+
+                        <div class="accordion-content hidden border-t border-slate-200 bg-white p-5 sm:p-6 text-slate-700 text-sm space-y-3">
+                            <p class="font-medium text-[#083D91]">Wat leer je in deze les?</p>
+                            <p>Een Pull Request (PR) is een verzoek aan je teamgenoten of docent om jouw voorgestelde code-wijzigingen te bekijken en goed te keuren.</p>
+                            <ul class="list-disc list-inside space-y-1 text-slate-600 pl-2">
+                                <li><strong>Pull Request maken:</strong> Vergelijk je branch met de main branch op GitHub.</li>
+                                <li><strong>Code Review:</strong> Inline commentaar achterlaten bij specifieke regels code om fouten op te sporen.</li>
+                                <li><strong>Approvals & Merging:</strong> Pas wanneer een reviewer akkoord geeft, mag de PR gefuseerd worden met de hoofdcode.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Lesson 4 -->
+                    <div class="lesson-card border border-slate-200 rounded-xl overflow-hidden hover:border-[#00A3A3] transition duration-200 bg-slate-50/50" data-lesson-id="4">
+                        <div class="p-4 sm:p-5 flex items-center justify-between cursor-pointer select-none" onclick="toggleAccordion(4)">
+                            <div class="flex items-center space-x-4">
+                                <button type="button" onclick="event.stopPropagation(); toggleLessonCheck(4)" class="checkbox-btn w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0 rounded-full border-2 border-slate-300 flex items-center justify-center transition-colors bg-white hover:border-[#00A3A3]">
+                                    <i class="fa-solid fa-check text-white text-xs sm:text-sm hidden"></i>
+                                </button>
+                                <span class="w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0 flex items-center justify-center rounded-full bg-[#00A3A3]/10 text-[#00A3A3] font-bold text-sm">
+                                    4
+                                </span>
+                                <div>
+                                    <h3 class="lesson-title font-semibold text-slate-800 text-base sm:text-lg">
+                                        Issues en projectbeheer
+                                    </h3>
+                                    <span class="text-xs text-slate-500">Bugs bijhouden, taken verdelen & Kanban</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <span class="status-badge text-xs px-2.5 py-1 rounded-full bg-slate-200 text-slate-600 font-medium hidden sm:inline-block">Nog niet gedaan</span>
+                                <i class="fa-solid fa-chevron-down text-slate-400 transform transition-transform duration-200 accordion-arrow"></i>
+                            </div>
+                        </div>
+
+                        <div class="accordion-content hidden border-t border-slate-200 bg-white p-5 sm:p-6 text-slate-700 text-sm space-y-3">
+                            <p class="font-medium text-[#083D91]">Wat leer je in deze les?</p>
+                            <p>Ontdek hoe je met GitHub Issues en Projects taken plant, bugs registreert en de voortgang van het team visueel opvolgt.</p>
+                            <ul class="list-disc list-inside space-y-1 text-slate-600 pl-2">
+                                <li><strong>Issues:</strong> Rapporteer een bug of vraag een nieuwe functie aan.</li>
+                                <li><strong>Labels & Assignees:</strong> Koppel een verantwoordelijke leerling en categorieën toe (bv. <code>bug</code>, <code>enhancement</code>).</li>
+                                <li><strong>GitHub Projects:</strong> Werken met een Kanban-bord (To Do, In Progress, Done).</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Lesson 5 -->
+                    <div class="lesson-card border border-slate-200 rounded-xl overflow-hidden hover:border-[#00A3A3] transition duration-200 bg-slate-50/50" data-lesson-id="5">
+                        <div class="p-4 sm:p-5 flex items-center justify-between cursor-pointer select-none" onclick="toggleAccordion(5)">
+                            <div class="flex items-center space-x-4">
+                                <button type="button" onclick="event.stopPropagation(); toggleLessonCheck(5)" class="checkbox-btn w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0 rounded-full border-2 border-slate-300 flex items-center justify-center transition-colors bg-white hover:border-[#00A3A3]">
+                                    <i class="fa-solid fa-check text-white text-xs sm:text-sm hidden"></i>
+                                </button>
+                                <span class="w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0 flex items-center justify-center rounded-full bg-[#00A3A3]/10 text-[#00A3A3] font-bold text-sm">
+                                    5
+                                </span>
+                                <div>
+                                    <h3 class="lesson-title font-semibold text-slate-800 text-base sm:text-lg">
+                                        .gitignore en best practices
+                                    </h3>
+                                    <span class="text-xs text-slate-500">Gevoelige data uitsluiten & Schone repo's</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <span class="status-badge text-xs px-2.5 py-1 rounded-full bg-slate-200 text-slate-600 font-medium hidden sm:inline-block">Nog niet gedaan</span>
+                                <i class="fa-solid fa-chevron-down text-slate-400 transform transition-transform duration-200 accordion-arrow"></i>
+                            </div>
+                        </div>
+
+                        <div class="accordion-content hidden border-t border-slate-200 bg-white p-5 sm:p-6 text-slate-700 text-sm space-y-3">
+                            <p class="font-medium text-[#083D91]">Wat leer je in deze les?</p>
+                            <p>Niet alle bestanden horen op GitHub thuis! Denk aan wachtwoorden, tijdelijke bestanden of zware installatiemappen.</p>
+                            <ul class="list-disc list-inside space-y-1 text-slate-600 pl-2">
+                                <li><strong>.gitignore bestand:</strong> Specifiek tekstbestand met patronen van bestanden die Git moet negeren.</li>
+                                <li><strong>Veiligheid:</strong> Voorkom het lekken van API keys, wachtwoorden en <code>.env</code> bestanden.</li>
+                                <li><strong>Grote bestanden:</strong> Negeer mappen zoals <code>node_modules/</code> of build-bestanden.</li>
+                            </ul>
+                            <div class="p-3 bg-slate-900 text-slate-100 rounded-lg font-mono text-xs overflow-x-auto">
+                                # Voorbeeld inhoud van .gitignore<br>
+                                node_modules/<br>
+                                .env<br>
+                                *.log
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lesson 6 -->
+                    <div class="lesson-card border border-slate-200 rounded-xl overflow-hidden hover:border-[#00A3A3] transition duration-200 bg-slate-50/50" data-lesson-id="6">
+                        <div class="p-4 sm:p-5 flex items-center justify-between cursor-pointer select-none" onclick="toggleAccordion(6)">
+                            <div class="flex items-center space-x-4">
+                                <button type="button" onclick="event.stopPropagation(); toggleLessonCheck(6)" class="checkbox-btn w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0 rounded-full border-2 border-slate-300 flex items-center justify-center transition-colors bg-white hover:border-[#00A3A3]">
+                                    <i class="fa-solid fa-check text-white text-xs sm:text-sm hidden"></i>
+                                </button>
+                                <span class="w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0 flex items-center justify-center rounded-full bg-[#00A3A3]/10 text-[#00A3A3] font-bold text-sm">
+                                    6
+                                </span>
+                                <div>
+                                    <h3 class="lesson-title font-semibold text-slate-800 text-base sm:text-lg">
+                                        Samenwerken in teams
+                                    </h3>
+                                    <span class="text-xs text-slate-500">Collaborators, rollen en team workflows</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <span class="status-badge text-xs px-2.5 py-1 rounded-full bg-slate-200 text-slate-600 font-medium hidden sm:inline-block">Nog niet gedaan</span>
+                                <i class="fa-solid fa-chevron-down text-slate-400 transform transition-transform duration-200 accordion-arrow"></i>
+                            </div>
+                        </div>
+
+                        <div class="accordion-content hidden border-t border-slate-200 bg-white p-5 sm:p-6 text-slate-700 text-sm space-y-3">
+                            <p class="font-medium text-[#083D91]">Wat leer je in deze les?</p>
+                            <p>Samen aan één project bouwen vereist goede afspraken. Leer hoe je klasgenoten toegang geeft tot je repository.</p>
+                            <ul class="list-disc list-inside space-y-1 text-slate-600 pl-2">
+                                <li><strong>Collaborators toevoegen:</strong> Klasgenoten uitnodigen via hun GitHub gebruikersnaam.</li>
+                                <li><strong>Toegangsrechten:</strong> Verschil tussen Read, Write en Admin permissies.</li>
+                                <li><code>git pull</code>: Altijd de nieuwste wijzigingen van je teamgenoten ophalen voordat je zelf begint te coderen.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Lesson 7 -->
+                    <div class="lesson-card border border-slate-200 rounded-xl overflow-hidden hover:border-[#00A3A3] transition duration-200 bg-slate-50/50" data-lesson-id="7">
+                        <div class="p-4 sm:p-5 flex items-center justify-between cursor-pointer select-none" onclick="toggleAccordion(7)">
+                            <div class="flex items-center space-x-4">
+                                <button type="button" onclick="event.stopPropagation(); toggleLessonCheck(7)" class="checkbox-btn w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0 rounded-full border-2 border-slate-300 flex items-center justify-center transition-colors bg-white hover:border-[#00A3A3]">
+                                    <i class="fa-solid fa-check text-white text-xs sm:text-sm hidden"></i>
+                                </button>
+                                <span class="w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0 flex items-center justify-center rounded-full bg-[#00A3A3]/10 text-[#00A3A3] font-bold text-sm">
+                                    7
+                                </span>
+                                <div>
+                                    <h3 class="lesson-title font-semibold text-slate-800 text-base sm:text-lg">
+                                        Conflicten oplossen
+                                    </h3>
+                                    <span class="text-xs text-slate-500">Merge conflicts begrijpen en verhelpen</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <span class="status-badge text-xs px-2.5 py-1 rounded-full bg-slate-200 text-slate-600 font-medium hidden sm:inline-block">Nog niet gedaan</span>
+                                <i class="fa-solid fa-chevron-down text-slate-400 transform transition-transform duration-200 accordion-arrow"></i>
+                            </div>
+                        </div>
+
+                        <div class="accordion-content hidden border-t border-slate-200 bg-white p-5 sm:p-6 text-slate-700 text-sm space-y-3">
+                            <p class="font-medium text-[#083D91]">Wat leer je in deze les?</p>
+                            <p>Wanneer twee personen dezelfde regel code aanpassen, ontstaat een Merge Conflict. Geen paniek! Je leert dit stapsgewijs oplossen.</p>
+                            <ul class="list-disc list-inside space-y-1 text-slate-600 pl-2">
+                                <li><strong>Conflict markers herkennen:</strong> Begrijp de symbolen <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, en <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>.</li>
+                                <li><strong>Oplossen in VS Code:</strong> Kies tussen 'Accept Current Change', 'Accept Incoming Change' of voeg beide samen.</li>
+                                <li><strong>Afronden:</strong> Sla het bestand op, maak een nieuwe commit en push je opgeloste code.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Lesson 8 -->
+                    <div class="lesson-card border border-slate-200 rounded-xl overflow-hidden hover:border-[#00A3A3] transition duration-200 bg-slate-50/50" data-lesson-id="8">
+                        <div class="p-4 sm:p-5 flex items-center justify-between cursor-pointer select-none" onclick="toggleAccordion(8)">
+                            <div class="flex items-center space-x-4">
+                                <button type="button" onclick="event.stopPropagation(); toggleLessonCheck(8)" class="checkbox-btn w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0 rounded-full border-2 border-slate-300 flex items-center justify-center transition-colors bg-white hover:border-[#00A3A3]">
+                                    <i class="fa-solid fa-check text-white text-xs sm:text-sm hidden"></i>
+                                </button>
+                                <span class="w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0 flex items-center justify-center rounded-full bg-[#00A3A3]/10 text-[#00A3A3] font-bold text-sm">
+                                    8
+                                </span>
+                                <div>
+                                    <h3 class="lesson-title font-semibold text-slate-800 text-base sm:text-lg">
+                                        GitHub in de echte wereld
+                                    </h3>
+                                    <span class="text-xs text-slate-500">GitHub Pages, CI/CD & Portfolio opbouwen</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <span class="status-badge text-xs px-2.5 py-1 rounded-full bg-slate-200 text-slate-600 font-medium hidden sm:inline-block">Nog niet gedaan</span>
+                                <i class="fa-solid fa-chevron-down text-slate-400 transform transition-transform duration-200 accordion-arrow"></i>
+                            </div>
+                        </div>
+
+                        <div class="accordion-content hidden border-t border-slate-200 bg-white p-5 sm:p-6 text-slate-700 text-sm space-y-3">
+                            <p class="font-medium text-[#083D91]">Wat leer je in deze les?</p>
+                            <p>In deze slotles ontdek je hoe professionele ontwikkelaars en IT-bedrijven GitHub inzetten voor hosting en automatisering.</p>
+                            <ul class="list-disc list-inside space-y-1 text-slate-600 pl-2">
+                                <li><strong>GitHub Pages:</strong> Zet jouw HTML/CSS/JS websites gratis live op het internet.</li>
+                                <li><strong>GitHub Actions (CI/CD):</strong> Automatiseer het testen en bouwen van je code bij elke commit.</li>
+                                <li><strong>Developer Portfolio:</strong> Gebruik je GitHub profiel als een online CV om je projecten te tonen aan werkgevers of vervolgopleidingen.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="bg-[#083D91] text-white mt-auto py-6 border-t border-blue-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            
+            <div class="text-center sm:text-left">
+                <div class="font-bold text-sm tracking-wide">SINT-FRANCISCUS EVERGEM</div>
+                <div class="text-xs text-cyan-200 font-light mt-0.5">
+                    5 ICW – 2026-2027 &bull; <span class="italic">Meer dan hardware alleen.</span>
+                </div>
+            </div>
+
+            <!-- Social Media Links -->
+            <div class="flex items-center space-x-5 text-lg">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-300 transition" aria-label="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-300 transition" aria-label="YouTube">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-300 transition" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+        // Total number of lessons
+        const TOTAL_LESSONS = 8;
+        const STORAGE_KEY = 'sf_github_lessons_completed';
+
+        // Load completed lessons from LocalStorage or initialize
+        let completedLessons = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Setup Mobile Menu
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Setup Reset Progress Button
+            const resetBtn = document.getElementById('reset-progress-btn');
+            if (resetBtn) {
+                resetBtn.addEventListener('click', () => {
+                    completedLessons = [];
+                    saveAndUpdateUI();
+                });
+            }
+
+            // Initial UI sync
+            updateUI();
+        });
+
+        // Toggle Accordion
+        function toggleAccordion(lessonId) {
+            const card = document.querySelector(`.lesson-card[data-lesson-id="${lessonId}"]`);
+            if (!card) return;
+
+            const content = card.querySelector('.accordion-content');
+            const arrow = card.querySelector('.accordion-arrow');
+
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                arrow.classList.add('rotate-180');
+            } else {
+                content.classList.add('hidden');
+                arrow.classList.remove('rotate-180');
+            }
+        }
+
+        // Toggle Lesson Completion Checkbox
+        function toggleLessonCheck(lessonId) {
+            const index = completedLessons.indexOf(lessonId);
+            if (index > -1) {
+                completedLessons.splice(index, 1);
+            } else {
+                completedLessons.push(lessonId);
+            }
+            saveAndUpdateUI();
+        }
+
+        // Save State & Update UI Elements
+        function saveAndUpdateUI() {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(completedLessons));
+            updateUI();
+        }
+
+        function updateUI() {
+            const completedCount = completedLessons.length;
+            const percentage = Math.round((completedCount / TOTAL_LESSONS) * 100);
+
+            // Update Progress Bar & Text
+            const progressBar = document.getElementById('progress-bar');
+            const progressPercent = document.getElementById('progress-percent');
+            const progressSubtitle = document.getElementById('progress-subtitle');
+
+            if (progressBar) progressBar.style.width = `${percentage}%`;
+            if (progressPercent) progressPercent.textContent = `${percentage}%`;
+            if (progressSubtitle) progressSubtitle.textContent = `${completedCount} van de ${TOTAL_LESSONS} lessen voltooid`;
+
+            // Update Lesson Cards State
+            for (let i = 1; i <= TOTAL_LESSONS; i++) {
+                const card = document.querySelector(`.lesson-card[data-lesson-id="${i}"]`);
+                if (!card) continue;
+
+                const isCompleted = completedLessons.includes(i);
+                const checkboxBtn = card.querySelector('.checkbox-btn');
+                const checkIcon = checkboxBtn.querySelector('i');
+                const statusBadge = card.querySelector('.status-badge');
+                const title = card.querySelector('.lesson-title');
+
+                if (isCompleted) {
+                    // Completed Styling
+                    card.classList.add('bg-teal-50/40', 'border-teal-300');
+                    card.classList.remove('bg-slate-50/50', 'border-slate-200');
+
+                    checkboxBtn.classList.add('bg-[#00A3A3]', 'border-[#00A3A3]');
+                    checkboxBtn.classList.remove('bg-white', 'border-slate-300');
+                    checkIcon.classList.remove('hidden');
+
+                    if (statusBadge) {
+                        statusBadge.textContent = 'Voltooid';
+                        statusBadge.className = 'status-badge text-xs px-2.5 py-1 rounded-full bg-[#00A3A3]/20 text-[#00A3A3] font-semibold hidden sm:inline-block';
+                    }
+
+                    title.classList.add('text-slate-600', 'line-through');
+                    title.classList.remove('text-slate-800');
+                } else {
+                    // Uncompleted Styling
+                    card.classList.remove('bg-teal-50/40', 'border-teal-300');
+                    card.classList.add('bg-slate-50/50', 'border-slate-200');
+
+                    checkboxBtn.classList.remove('bg-[#00A3A3]', 'border-[#00A3A3]');
+                    checkboxBtn.classList.add('bg-white', 'border-slate-300');
+                    checkIcon.classList.add('hidden');
+
+                    if (statusBadge) {
+                        statusBadge.textContent = 'Nog niet gedaan';
+                        statusBadge.className = 'status-badge text-xs px-2.5 py-1 rounded-full bg-slate-200 text-slate-600 font-medium hidden sm:inline-block';
+                    }
+
+                    title.classList.remove('text-slate-600', 'line-through');
+                    title.classList.add('text-slate-800');
+                }
+            }
+        }
+    </script>
+</body>
+</html>
