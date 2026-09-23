@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kevin Mitnick Games - Sint-Franciscus Evergem (5 ICW)</title>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome icons for Trophy and Social Media -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandPrimary: '#083D91',  /* Donkerblauw */
+                        brandSecondary: '#00A3A3',/* Teal */
+                        brandAccent: '#F4B400',   /* Geel */
+                        brandBg: '#F8FAFC',       /* Lichtgrijs */
+                        brandText: '#1F2937'      /* Donkergrijs */
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #F8FAFC;
+            color: #1F2937;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Header / Navigation Bar -->
+    <header class="bg-[#083D91] text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                
+                <!-- Brand / Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="p-2 bg-white/10 rounded-lg flex items-center justify-center">
+                        <i class="fa-solid font-bold text-xl sm:text-2xl text-white font-mono">SF</i>
+                    </div>
+                    <div>
+                        <a href="index.html" class="font-bold text-sm sm:text-base tracking-wide block hover:text-cyan-200 transition">
+                            SINT-FRANCISCUS EVERGEM
+                        </a>
+                        <span class="text-xs text-cyan-200 font-light block -mt-1">5 ICW – HARDWARE</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation Menu -->
+                <nav class="hidden md:flex space-x-1 lg:space-x-2">
+                    <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition">Home</a>
+                    <a href="mitnick.html" class="px-3 py-2 rounded-md text-sm font-medium bg-[#00A3A3] text-white shadow-sm transition" aria-current="page">Mitnick Games</a>
+                    <a href="github.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition">GitHub</a>
+                    <a href="nokia.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition">Nokia</a>
+                </nav>
+
+                <!-- Search & Mobile Toggle -->
+                <div class="flex items-center space-x-3">
+                    <button class="p-2 hover:bg-white/10 rounded-full transition" aria-label="Zoeken">
+                        <i class="fa-solid fa-magnifying-glass text-lg"></i>
+                    </button>
+                    <!-- Mobile Hamburger Button -->
+                    <button id="mobile-menu-btn" class="md:hidden p-2 rounded-md hover:bg-white/10 focus:outline-none" aria-label="Menu openen">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#062f70] border-t border-blue-900 px-4 pt-2 pb-4 space-y-1">
+            <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-white/10">Home</a>
+            <a href="mitnick.html" class="block px-3 py-2 rounded-md text-base font-medium bg-[#00A3A3] text-white">Mitnick Games</a>
+            <a href="github.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-white/10">GitHub</a>
+            <a href="nokia.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-white/10">Nokia</a>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Hero Banner Section -->
+        <section class="relative bg-[#061e38] text-white overflow-hidden py-16 sm:py-24">
+            <!-- Background Image with Overlay -->
+            <div class="absolute inset-0 z-0 opacity-30 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1200&auto=format&fit=crop');"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-[#083D91] to-transparent opacity-80 z-0"></div>
+            
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-2xl">
+                    <h1 class="text-3xl sm:text-5xl font-bold tracking-tight mb-3">
+                        Kevin Mitnick Games
+                    </h1>
+                    <p class="text-lg sm:text-xl text-cyan-200 font-light tracking-wide">
+                        Think like a hacker. Learn like a pro.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Container -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 space-y-12">
+            
+            <!-- Section 1: Over de wedstrijd -->
+            <div class="bg-white rounded-xl p-6 sm:p-8 shadow-sm border border-slate-100 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                <div class="md:col-span-2 space-y-4">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-[#083D91] relative pb-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-16 after:h-1 after:bg-[#00A3A3] after:rounded">
+                        Over de wedstrijd
+                    </h2>
+                    <p class="text-slate-700 leading-relaxed text-base sm:text-lg">
+                        De <strong class="text-[#083D91]">Kevin Mitnick Games</strong> is de jaarlijkse hackingcontest van Oost-Vlaanderen. Teams nemen het op tegen uitdagende opdrachten rond cybersecurity, netwerken, cryptografie en logica. Test je skills, denk creatief en los security challenges op in een spannende competitieve omgeving.
+                    </p>
+                </div>
+                <!-- Image Container -->
+                <div class="flex justify-center">
+                    <div class="relative overflow-hidden rounded-xl shadow-md group max-w-xs w-full">
+                        <img 
+                            src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop" 
+                            alt="Digitale beveiliging met cybericoontjes op een slot" 
+                            class="w-full h-48 sm:h-56 object-cover transform group-hover:scale-105 transition duration-300"
+                        />
+                        <div class="absolute inset-0 bg-[#083D91]/10 group-hover:bg-transparent transition duration-300"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Wall of Fame -->
+            <div class="bg-white rounded-xl p-6 sm:p-8 shadow-sm border border-slate-100">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="w-10 h-10 rounded-lg bg-[#F4B400]/20 flex items-center justify-center text-[#F4B400]">
+                        <i class="fa-solid fa-trophy text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-[#083D91]">
+                        Wall of Fame
+                    </h2>
+                </div>
+
+                <!-- Winners Grid / List -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+                    
+                    <!-- Winner 2024 -->
+                    <div class="flex items-center space-x-4 p-4 rounded-lg bg-slate-50 border border-slate-200/80 hover:border-[#00A3A3] transition">
+                        <span class="text-lg font-bold text-[#083D91] bg-white px-3 py-1 rounded shadow-sm border border-slate-100">
+                            2024
+                        </span>
+                        <div class="font-medium text-slate-800">
+                            Devos Leon en Sarah Bonne
+                        </div>
+                    </div>
+
+                    <!-- Winner 2025 -->
+                    <div class="flex items-center space-x-4 p-4 rounded-lg bg-slate-50 border border-slate-200/80 hover:border-[#00A3A3] transition">
+                        <span class="text-lg font-bold text-[#083D91] bg-white px-3 py-1 rounded shadow-sm border border-slate-100">
+                            2025
+                        </span>
+                        <div class="font-medium text-slate-800">
+                            Alboort Lars
+                        </div>
+                    </div>
+
+                    <!-- Winner 2026 -->
+                    <div class="flex items-center space-x-4 p-4 rounded-lg bg-slate-50 border border-slate-200/80 hover:border-[#00A3A3] transition">
+                        <span class="text-lg font-bold text-[#083D91] bg-white px-3 py-1 rounded shadow-sm border border-slate-100">
+                            2026
+                        </span>
+                        <div class="font-medium text-slate-800">
+                            Boone Vic
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-[#083D91] text-white mt-auto py-6 border-t border-blue-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            
+            <div class="text-center sm:text-left">
+                <div class="font-bold text-sm tracking-wide">SINT-FRANCISCUS EVERGEM</div>
+                <div class="text-xs text-cyan-200 font-light mt-0.5">
+                    5 ICW – 2026-2027 &bull; <span class="italic">Meer dan hardware alleen.</span>
+                </div>
+            </div>
+
+            <!-- Social Media Icons -->
+            <div class="flex items-center space-x-5 text-lg">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-300 transition" aria-label="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-300 transition" aria-label="YouTube">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-300 transition" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Interactive JS for Mobile Menu Toggle -->
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
