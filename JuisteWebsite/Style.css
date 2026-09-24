@@ -1,0 +1,1173 @@
+/* ================================
+   ALGEMENE INSTELLINGEN
+================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+
+    background: #080b12;
+
+    color: #edf2f7;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    line-height: 1.6;
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+header {
+    min-height: 75px;
+
+    padding: 0 6%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    background: #0d121a;
+
+    border-bottom: 1px solid #222d3a;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+}
+
+
+.logo {
+    font-size: 25px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    white-space: nowrap;
+}
+
+
+.logo span {
+    color: #45e0a8;
+}
+
+
+nav {
+    display: flex;
+
+    gap: 8px;
+
+    flex-wrap: wrap;
+
+    justify-content: flex-end;
+}
+
+
+nav a {
+    color: #96a2b1;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    padding: 8px 12px;
+
+    border-radius: 5px;
+
+    transition: 0.2s;
+}
+
+
+nav a:hover {
+    background: #171f2b;
+
+    color: white;
+}
+
+
+nav a.active {
+    background: #45e0a8;
+
+    color: #06100b;
+
+    font-weight: bold;
+}
+
+
+/* ================================
+   HERO
+================================ */
+
+.hero {
+    min-height: 620px;
+
+    padding: 100px 8%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 70px;
+
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(69, 224, 168, 0.12),
+            transparent 35%
+        );
+}
+
+
+.label {
+    color: #45e0a8;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+}
+
+
+.hero h1 {
+    font-size: clamp(55px, 8vw, 100px);
+
+    line-height: 0.95;
+
+    letter-spacing: -5px;
+
+    margin: 20px 0;
+}
+
+
+.hero h1 span {
+    color: #45e0a8;
+
+    display: block;
+}
+
+
+.intro {
+    max-width: 600px;
+
+    color: #99a5b4;
+
+    font-size: 18px;
+}
+
+
+.button {
+    display: inline-block;
+
+    margin-top: 25px;
+
+    padding: 13px 22px;
+
+    background: #45e0a8;
+
+    color: #06100b;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+    border-radius: 6px;
+
+    transition: 0.2s;
+}
+
+
+.button:hover {
+    transform: translateY(-3px);
+}
+
+
+/* ================================
+   TERMINAL
+================================ */
+
+.terminal {
+    background: #040608;
+
+    border: 1px solid #273342;
+
+    border-radius: 10px;
+
+    padding: 30px;
+
+    font-family: monospace;
+
+    color: #8996a6;
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.4);
+}
+
+
+.terminal-top {
+    display: flex;
+
+    gap: 7px;
+
+    margin-bottom: 25px;
+}
+
+
+.terminal-top span {
+    width: 10px;
+
+    height: 10px;
+
+    background: #384453;
+
+    border-radius: 50%;
+}
+
+
+.terminal p {
+    margin: 9px 0;
+}
+
+
+.terminal-green {
+    color: #45e0a8;
+}
+
+
+/* ================================
+   SECTIES
+================================ */
+
+.section {
+    padding: 90px 8%;
+}
+
+
+.section h2 {
+    font-size: 42px;
+
+    line-height: 1.1;
+
+    margin-top: 5px;
+
+    margin-bottom: 45px;
+}
+
+
+/* ================================
+   HOME CARDS
+================================ */
+
+.main-cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+.main-card {
+    position: relative;
+
+    padding: 32px;
+
+    min-height: 330px;
+
+    background: #101720;
+
+    border: 1px solid #293646;
+
+    border-radius: 10px;
+
+    color: white;
+
+    text-decoration: none;
+
+    transition: 0.25s;
+}
+
+
+.main-card:hover {
+    transform: translateY(-7px);
+
+    border-color: #45e0a8;
+
+    background: #131d28;
+}
+
+
+.card-number {
+    position: absolute;
+
+    top: 20px;
+
+    right: 25px;
+
+    color: #526070;
+
+    font-family: monospace;
+
+    font-size: 13px;
+}
+
+
+.card-icon {
+    font-size: 38px;
+
+    margin-bottom: 20px;
+}
+
+
+.main-card h3 {
+    font-size: 23px;
+
+    margin-bottom: 12px;
+}
+
+
+.main-card p {
+    color: #8f9baa;
+
+    font-size: 15px;
+}
+
+
+.read-more {
+    position: absolute;
+
+    bottom: 25px;
+
+    color: #45e0a8;
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+
+/* ================================
+   ABOUT
+================================ */
+
+.about {
+    margin: 20px 8% 100px;
+
+    padding: 60px;
+
+    background: #101820;
+
+    border: 1px solid #283544;
+
+    border-radius: 10px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 50px;
+
+    align-items: center;
+}
+
+
+.about h2 {
+    font-size: 45px;
+
+    line-height: 1.1;
+
+    margin: 10px 0;
+}
+
+
+.about h2 span {
+    color: #45e0a8;
+}
+
+
+.about > p {
+    color: #919dac;
+
+    font-size: 16px;
+}
+
+
+/* ================================
+   PAGE HEADER
+================================ */
+
+.page-header {
+    padding: 90px 8% 70px;
+
+    border-bottom: 1px solid #222e3c;
+
+    background: #0b1017;
+}
+
+
+.page-header h1 {
+    font-size: clamp(45px, 7vw, 80px);
+
+    line-height: 1;
+
+    margin: 15px 0;
+}
+
+
+.page-header h1 span {
+    color: #45e0a8;
+}
+
+
+.page-header > p:last-child {
+    color: #919dac;
+
+    font-size: 18px;
+}
+
+
+/* ================================
+   CONTENT SECTION
+================================ */
+
+.content-section {
+    padding: 90px 8%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 65px;
+
+    align-items: center;
+}
+
+
+.image-box img {
+    width: 100%;
+
+    height: 400px;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+
+    border: 1px solid #293746;
+}
+
+
+.text-box h2 {
+    font-size: 40px;
+
+    line-height: 1.1;
+
+    margin-top: 10px;
+}
+
+
+.text-box p {
+    color: #929eac;
+}
+
+
+.info-box {
+    margin-top: 25px;
+
+    padding: 20px;
+
+    background: #101c19;
+
+    border-left: 4px solid #45e0a8;
+
+    border-radius: 5px;
+}
+
+
+.info-box strong {
+    color: #45e0a8;
+}
+
+
+.info-box p {
+    margin-bottom: 0;
+}
+
+
+/* ================================
+   SMALL CARDS
+================================ */
+
+.small-cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+
+.small-card {
+    padding: 28px;
+
+    background: #101720;
+
+    border: 1px solid #293746;
+
+    border-radius: 9px;
+
+    transition: 0.2s;
+}
+
+
+.small-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #45e0a8;
+}
+
+
+.small-card h3 {
+    margin-top: 0;
+}
+
+
+.small-card p {
+    color: #8f9baa;
+
+    font-size: 14px;
+}
+
+
+/* ================================
+   WALL OF FAME
+================================ */
+
+.fame-section {
+    padding: 100px 8%;
+
+    background: #0b1017;
+}
+
+
+.center-title {
+    text-align: center;
+
+    max-width: 700px;
+
+    margin: 0 auto 50px;
+}
+
+
+.center-title h2 {
+    font-size: 45px;
+
+    margin: 10px 0;
+}
+
+
+.center-title > p:last-child {
+    color: #8f9baa;
+}
+
+
+.fame-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+
+.fame-card {
+    padding: 45px 30px;
+
+    text-align: center;
+
+    background: #111923;
+
+    border: 1px solid #2b3848;
+
+    border-radius: 10px;
+
+    transition: 0.2s;
+}
+
+
+.fame-card:hover {
+    transform: translateY(-7px);
+
+    border-color: #45e0a8;
+}
+
+
+.fame-year {
+    color: #45e0a8;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+}
+
+
+.trophy {
+    font-size: 60px;
+
+    margin: 20px 0;
+}
+
+
+.fame-card h3 {
+    margin: 3px;
+
+    font-size: 23px;
+}
+
+
+.fame-card p {
+    color: #8592a2;
+}
+
+
+/* ================================
+   QUOTE
+================================ */
+
+.quote {
+    margin: 80px 8%;
+
+    padding: 60px;
+
+    text-align: center;
+
+    border-top: 1px solid #263241;
+
+    border-bottom: 1px solid #263241;
+}
+
+
+.quote p {
+    margin: 0;
+
+    font-size: 30px;
+
+    font-weight: bold;
+
+    color: #45e0a8;
+}
+
+
+/* ================================
+   GITHUB WORKFLOW
+================================ */
+
+.workflow {
+    display: flex;
+
+    align-items: stretch;
+
+    gap: 10px;
+
+    overflow-x: auto;
+
+    padding-bottom: 20px;
+}
+
+
+.workflow-step {
+    min-width: 180px;
+
+    padding: 25px;
+
+    background: #101720;
+
+    border: 1px solid #293746;
+
+    border-radius: 8px;
+}
+
+
+.workflow-step > span {
+    color: #45e0a8;
+
+    font-family: monospace;
+
+    font-weight: bold;
+}
+
+
+.workflow-step h3 {
+    margin: 8px 0;
+}
+
+
+.workflow-step p {
+    color: #8c99a8;
+
+    font-size: 14px;
+}
+
+
+.workflow-arrow {
+    display: flex;
+
+    align-items: center;
+
+    color: #45e0a8;
+
+    font-size: 25px;
+}
+
+
+/* ================================
+   CODE
+================================ */
+
+.code-section {
+    padding: 70px 8%;
+
+    background: #05070a;
+}
+
+
+.code-section h2 {
+    font-size: 35px;
+}
+
+
+.code-box {
+    max-width: 800px;
+
+    padding: 25px;
+
+    background: #020304;
+
+    border: 1px solid #26313e;
+
+    border-radius: 8px;
+
+    font-family: monospace;
+
+    color: #a6b1be;
+}
+
+
+.code-box span {
+    color: #45e0a8;
+}
+
+
+/* ================================
+   LESSONS
+================================ */
+
+.lesson-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+
+.lesson {
+    text-align: left;
+
+    padding: 25px;
+
+    background: #101720;
+
+    border: 1px solid #293746;
+
+    color: white;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.lesson:hover {
+    transform: translateY(-5px);
+
+    border-color: #45e0a8;
+}
+
+
+.lesson > span {
+    color: #45e0a8;
+
+    font-family: monospace;
+
+    font-weight: bold;
+}
+
+
+.lesson h3 {
+    margin: 10px 0 5px;
+}
+
+
+.lesson p {
+    color: #8c99a8;
+
+    margin: 0;
+
+    font-size: 14px;
+}
+
+
+.lesson-result {
+    margin: 0 8% 100px;
+
+    padding: 45px;
+
+    background: #101820;
+
+    border: 1px solid #293746;
+
+    border-radius: 10px;
+}
+
+
+#lesson-number {
+    color: #45e0a8;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+
+#lesson-title {
+    font-size: 38px;
+
+    margin: 8px 0;
+}
+
+
+#lesson-description {
+    max-width: 800px;
+
+    color: #909dac;
+}
+
+
+/* ================================
+   NETWORK
+================================ */
+
+.network {
+    padding: 45px;
+
+    background: #101720;
+
+    border: 1px solid #293746;
+
+    border-radius: 10px;
+
+    text-align: center;
+}
+
+
+.network-device {
+    display: inline-flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    width: 150px;
+
+    min-height: 120px;
+
+    margin: 10px;
+
+    padding: 20px;
+
+    background: #151f2a;
+
+    border: 1px solid #304051;
+
+    border-radius: 8px;
+}
+
+
+.network-icon {
+    font-size: 40px;
+
+    margin-bottom: 8px;
+}
+
+
+.network-device strong {
+    font-size: 14px;
+}
+
+
+.network-arrow {
+    color: #45e0a8;
+
+    font-size: 30px;
+}
+
+
+.network-devices {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+footer {
+    padding: 35px 8%;
+
+    background: #05070a;
+
+    border-top: 1px solid #202b38;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #697585;
+
+    font-size: 13px;
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 1100px) {
+
+    header {
+        flex-direction: column;
+
+        padding: 20px;
+
+        gap: 15px;
+    }
+
+
+    nav {
+        justify-content: center;
+    }
+
+
+    .small-cards {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .lesson-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .fame-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        padding-top: 70px;
+    }
+
+
+    .content-section {
+        grid-template-columns: 1fr;
+    }
+
+
+    .main-cards {
+        grid-template-columns: 1fr;
+    }
+
+
+    .about {
+        grid-template-columns: 1fr;
+
+        padding: 35px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .small-cards {
+        grid-template-columns: 1fr;
+    }
+
+
+    .lesson-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .hero h1 {
+        font-size: 55px;
+
+        letter-spacing: -3px;
+    }
+
+
+    .page-header h1 {
+        font-size: 50px;
+    }
+
+
+    .content-section {
+        padding: 60px 6%;
+    }
+
+
+    .section {
+        padding: 60px 6%;
+    }
+
+
+    .page-header {
+        padding: 60px 6%;
+    }
+
+
+    .image-box img {
+        height: 280px;
+    }
+
+
+    .about {
+        margin-left: 6%;
+
+        margin-right: 6%;
+    }
+
+
+    footer {
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+
+    nav a {
+        font-size: 11px;
+
+        padding: 6px;
+    }
+
+
+}
+
+/* =========================
+   PROGRESSION BAR
+   ========================= */
+
+.progress-section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 25px;
+    background: #0d0d18;
+    border: 1px solid #25253a;
+    border-radius: 14px;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.progress-header h2 {
+    margin: 0;
+}
+
+#progressText {
+    color: #45e0a8;
+    font-weight: bold;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 18px;
+    background: #20202f;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+#progressFill {
+    width: 0%;
+    height: 100%;
+    background: #45e0a8;
+    border-radius: 20px;
+    transition: width 0.4s ease;
+}
+
+#progressMessage {
+    margin-top: 12px;
+    color: #aaa;
+}
+
+.lesson.completed {
+    border-color: #45e0a8;
+    position: relative;
+}
+
+.lesson.completed::after {
+    content: "✓";
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #45e0a8;
+    font-size: 22px;
+    font-weight: bold;
+}
