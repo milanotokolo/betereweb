@@ -123,15 +123,56 @@
 
     <!-- NOKIA GAMES -->
 
-    <section class="section">
+   <section class="section">
 
-        <p class="label">
-            NOKIA GAMES
-        </p>
+    <p class="label">
+        NOKIA GAME
+    </p>
 
-        <h2>
-            De verschillende onderdelen
-        </h2>
+    <h2>
+        Tetris
+    </h2>
+
+    <p>
+        Speel hieronder een kleine Tetris-game.
+        Gebruik de pijltjestoetsen om de blokken te besturen.
+    </p>
+
+    <div class="tetris-container">
+
+        <canvas id="tetris" width="300" height="600"></canvas>
+
+        <div class="tetris-info">
+
+            <h3>
+                TETRIS
+            </h3>
+
+            <p>
+                Score:
+                <strong id="score">0</strong>
+            </p>
+
+            <p>
+                Besturing:
+            </p>
+
+            <div class="controls">
+                ← → Bewegen<br>
+                ↓ Sneller<br>
+                ↑ Draaien<br>
+                Spatie = Hard drop
+            </div>
+
+            <button onclick="restartTetris()">
+                Opnieuw starten
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
 
 
         <div class="small-cards">
@@ -451,6 +492,284 @@
     </p>
 
 </footer>
+
+<script>
+const canvas = document.getElementById("tetris");
+const ctx = canvas.getContext("2d");
+
+const COLS = 10;
+const ROWS = 20;
+const BLOCK = 30;
+
+let board = [];
+let player;
+let score = 0;
+let gameOver = false;
+
+const pieces = [
+    [[1,1,1,1]],
+    [[1,1],[1,1]],
+    [[0,1,0],[1,1,1]],
+    [[1,0,0],[1,1,1]],
+    [[0,0,1],[1,1,1]],
+    [[0,1,1],[1,1,0]],
+    [[1,1,0],[0,1,1]]
+];
+
+function createBoard() {
+    board = [];
+
+    for (let y = 0; y < ROWS; y++) {
+        board.push(new Array(COLS).fill(0));
+    }
+}
+
+function newPiece() {
+    const shape =
+        pieces[Math.floor(Math.random() * pieces.length)];
+
+    player = {
+        x: Math.floor(COLS / 2) - 1,
+        y: 0,
+        shape: shape
+    };
+
+    if (collision()) {
+        gameOver = true;
+    }
+}
+
+function collision() {
+    for (let y = 0; y < player.shape.length; y++) {
+        for (let x = 0; x < player.shape[y].length; x++) {
+
+            if (!player.shape[y][x]) continue;
+
+            const px = player.x + x;
+            const py = player.y + y;
+
+            if (
+                px < 0 ||
+                px >= COLS ||
+                py >= ROWS ||
+                (py >= 0 && board[py][px])
+            ) {
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
+
+function merge() {
+    player.shape.forEach((row, y) => {
+        row.forEach((value, x) => {
+            if (value) {
+                board[player.y + y][player.x + x] = 1;
+            }
+        });
+    });
+}
+
+function clearLines() {
+    for (let y = ROWS - 1; y >= 0; y--) {
+
+        if (board[y].every(cell => cell === 1)) {
+
+            board.splice(y, 1);
+            board.unshift(new Array(COLS).fill(0));
+
+            score += 100;
+
+            document.getElementById("score").textContent = score;
+
+            y++;
+        }
+    }
+}
+
+function moveDown() {
+    player.y++;
+
+    if (collision()) {
+        player.y--;
+
+        merge();
+        clearLines();
+        newPiece();
+    }
+}
+
+function moveHorizontal(direction) {
+    player.x += direction;
+
+    if (collision()) {
+        player.x -= direction;
+    }
+}
+
+function rotate() {
+    const oldShape = player.shape;
+
+    player.shape = player.shape[0].map(
+        (_, index) =>
+            player.shape.map(row => row[index]).reverse()
+    );
+
+    if (collision()) {
+        player.shape = oldShape;
+    }
+}
+
+function hardDrop() {
+    while (!collision()) {
+        player.y++;
+    }
+
+    player.y--;
+
+    merge();
+    clearLines();
+    newPiece();
+}
+
+function drawBlock(x, y) {
+    ctx.fillStyle = "#45e0a8";
+
+    ctx.fillRect(
+        x * BLOCK,
+        y * BLOCK,
+        BLOCK,
+        BLOCK
+    );
+
+    ctx.strokeStyle = "#05050d";
+    ctx.strokeRect(
+        x * BLOCK,
+        y * BLOCK,
+        BLOCK,
+        BLOCK
+    );
+}
+
+function drawBoard() {
+
+    ctx.fillStyle = "#080812";
+
+    ctx.fillRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+    for (let y = 0; y < ROWS; y++) {
+        for (let x = 0; x < COLS; x++) {
+
+            if (board[y][x]) {
+                drawBlock(x, y);
+            }
+        }
+    }
+
+    if (!gameOver) {
+
+        player.shape.forEach((row, y) => {
+            row.forEach((value, x) => {
+
+                if (value) {
+                    drawBlock(
+                        player.x + x,
+                        player.y + y
+                    );
+                }
+
+            });
+        });
+
+    } else {
+
+        ctx.fillStyle = "rgba(0,0,0,0.75)";
+
+        ctx.fillRect(
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
+
+        ctx.fillStyle = "#ffffff";
+        ctx.font = "bold 28px Arial";
+        ctx.textAlign = "center";
+
+        ctx.fillText(
+            "GAME OVER",
+            canvas.width / 2,
+            canvas.height / 2
+        );
+    }
+}
+
+document.addEventListener("keydown", event => {
+
+    if (
+        event.key === "ArrowLeft" ||
+        event.key === "ArrowRight" ||
+        event.key === "ArrowDown" ||
+        event.key === "ArrowUp" ||
+        event.code === "Space"
+    ) {
+        event.preventDefault();
+    }
+
+    if (gameOver) return;
+
+    if (event.key === "ArrowLeft") {
+        moveHorizontal(-1);
+    }
+
+    if (event.key === "ArrowRight") {
+        moveHorizontal(1);
+    }
+
+    if (event.key === "ArrowDown") {
+        moveDown();
+    }
+
+    if (event.key === "ArrowUp") {
+        rotate();
+    }
+
+    if (event.code === "Space") {
+        hardDrop();
+    }
+
+    drawBoard();
+});
+function restartTetris() {
+    score = 0;
+    gameOver = false;
+
+    document.getElementById("score").textContent = score;
+
+    createBoard();
+    newPiece();
+    drawBoard();
+}
+
+function gameLoop() {
+    if (!gameOver) {
+        moveDown();
+    }
+
+    drawBoard();
+}
+
+restartTetris();
+
+setInterval(gameLoop, 700);
+</script>
 
 </body>
 </html>
