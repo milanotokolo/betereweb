@@ -1,0 +1,18 @@
+15. Wie heeft een door de leerkracht gekozen regel in een HTML-bestand het laatst gewijzigd?
+Antwoord:
+Git-commando:
+
+16. Wat is de korte hash van de commit waarin de Nokia-inhoud voor het eerst werd toegevoegd?
+Antwoord: a7e2a68
+Git-commando:git log --all --oneline -S"Nokia"
+
+17. Welke bestanden werden in die commit gewijzigd?
+Antwoord:Nokia-info.html
+Git-commando: git show --name-only --format="" a7e2a68
+
+18. Git-commando om de geschiedenis inclusief branches en merges grafisch te bekijken:
+Antwoord: git log --all --graph --oneline --decorate
+
+19. Verschil tussen een gewone merge en 'Squash and merge':
+Antwoord: Bij een gewone merge blijven de afzonderlijke van de branch zichtbaar in de geschiedenis.
+Bij eens squash and merge worden meerdere commits samengevoegd tot 1 nieuw commit. 
