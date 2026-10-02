@@ -1,6 +1,6 @@
 15. Wie heeft een door de leerkracht gekozen regel in een HTML-bestand het laatst gewijzigd?
-Antwoord:
-Git-commando:
+Antwoord:Microgolfoven (Thorre)
+Git-commando: git blame -L 178,178 ".\JuisteWebsite\Index.html"
 
 16. Wat is de korte hash van de commit waarin de Nokia-inhoud voor het eerst werd toegevoegd?
 Antwoord: a7e2a68
